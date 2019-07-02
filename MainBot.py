@@ -33,7 +33,7 @@ async def on_ready():
 
 @app.event
 async def on_message(message):
-    if message.content.startswith(""):
+    if message.content.startswith("실험"):
        await message.channel.send("테스트 성공")
 
 app.run (access_token)
