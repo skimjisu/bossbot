@@ -1,10 +1,13 @@
 
 # 보스 로봇 마이그레이선 v1.0
 
-import asyncio 
+import os
+import sys
+import asyncio
 import discord 
 from discord.ext.commands import Bot 
 
+access_token = os.environ["BOT_TOKEN"]
 
 class BossBot(discord.Client):
     def __init_(self):
