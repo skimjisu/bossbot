@@ -386,7 +386,6 @@ async def MakeSound(saveSTR, filename):
 	
 async def PlaySound(voiceclient, filename):
 	voiceclient.play(discord.FFmpegPCMAudio(filename), after=lambda e: print('done', e))
-
 	while voiceclient.is_playing():
 		await asyncio.sleep(1)
 	# disconnect after the player has finished
@@ -597,7 +596,7 @@ async def on_ready():
 	
 	# 디스코드에는 현재 본인이 어떤 게임을 플레이하는지 보여주는 기능이 있습니다.
 	# 이 기능을 사용하여 봇의 상태를 간단하게 출력해줄 수 있습니다.
-	#await client.change_presence(status=discord.Game(name="반갑습니다 :D", type=1))
+	await client.change_presence(status=discord.Status.idle, activity=discord.Game(name="디코봇!", type=1))
 
 	
 # 봇이 새로운 메시지를 수신했을때 동작되는 코드입니다.
