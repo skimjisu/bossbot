@@ -41,7 +41,7 @@ def init():
     loop = asyncio.get_event_loop()
     loop.create_task(start())
 
-    thread = threading.Thread(target=run_it_forever, args=(loop,))
+    thread = threading.Thread(target=running_loop, args=(loop,))
     thread.start()    
     
 @app.event
