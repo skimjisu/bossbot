@@ -5,11 +5,15 @@ import os
 import sys
 import asyncio
 import discord 
-from discord.ext.commands import Bot 
+
+from discord.ext.commands import commands 
 
 access_token = os.environ["BOT_TOKEN"]
 
 app = discord.Client()
+
+client = commands.Bot(command_prefix='/')
+voice_client = None
 
 class BossBot(discord.Client):
     def __init_(self):
@@ -30,6 +34,13 @@ async def AutoJoin_Channels(self, channels):
 async def on_ready():
     print(app.user.id)
     print("Bot is Ready")
+    
+@client.command()    
+async def vc_join(ctx):
+    #voicechannel 입장
+    vc = ctx.author.voice.channel
+    #voicechannel 접속
+    await vc.connect()    
 
 @app.event
 async def on_message(message):
